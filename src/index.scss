@@ -1,0 +1,723 @@
+@font-face {
+  font-family: 'Cormorant';
+  src: url('/Cormorant/Cormorant-Regular.woff2') format('woff2');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Cormorant;
+    color: black;
+    box-sizing: border-box;
+}
+:root{
+    --color1: #d5b494;
+    --color2: #fff0db;
+    --color3: #ffe7cf;
+    --color4: #d5b49480;
+    --color5: #fff2df;
+    --red: #a72a2a;
+    --green: #61b149;
+    --accent: #3c1d10;
+    --border-radius: 10px;
+    --box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.5);
+    --border: 1px solid var(--color1);
+    --del-l: url(/public/del-light.svg);
+    --del-d: url(/public/del-dark.svg);
+    --check: url(/public/check.svg);
+    --check-d: url(/public/check-dark.svg);
+    --edit: url(/public/edit.svg);
+}
+body{
+    background-color: var(--color5);
+    background-image: url(/public/back.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.start{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    & h1{
+        font-size: 32px;
+        font-weight: 600;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    & .startBtn{
+        width: 250px;
+        height: 80px;
+        color: white;
+        background-color: var(--accent);
+        border-radius: 15px;
+        font-size: 32px;
+        border: 0;
+        font-weight: 400;
+        position: relative;
+
+        &:active{
+            box-shadow: var(--box-shadow);
+        }
+    }
+
+    & .seeWords{
+        width: 300px;
+        height: 80px;
+        color: white;
+        background-color: var(--accent);
+        border-radius: 15px;
+        font-size: 26px;
+        border: 0;
+        font-weight: 400;
+        position: relative;
+
+        &:active{
+            box-shadow: var(--box-shadow);
+        }
+    }
+}
+
+.settings{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100vw;
+    max-width: 520px;
+    background-color: var(--color5);
+    margin: 30px 0;
+    border-radius: 15px;
+    border: var(--border);
+
+    h1{
+        font-size: 32px;
+        border-bottom: var(--border);
+        padding-bottom: 10px;
+        width: 100%;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    & > div{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+        gap: 20px;
+
+        & .setting {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            & > span{
+                font-size: 20px;
+            }
+            & > div{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                & input{
+                    width: 130px;
+                    height: 45px;
+                    border: var(--border);
+                    border-radius: var(--border-radius);
+                    background-color: var(--color3);
+                    font-size: 20px;
+                    font-weight: 600;
+                    padding: 0 10px;
+                }
+
+                & > span{
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        & .setting.check label{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            & span:last-child{
+                font-size: 20px;
+            }
+
+            & input{
+                display: none;
+            }
+
+            & span:first-of-type{
+                display: block;
+                width: 25px;
+                height: 25px;
+                border-radius: 5px;
+                border: var(--border);
+                background-color: var(--color2);
+                position: relative;
+                z-index: 1;
+            }
+
+            & input:checked + span:first-of-type{
+                background-image: var(--check-d);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 70%;
+            }
+        }
+
+        & .setting.addTeams > div{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            & button{
+                width: 40px;
+                height: 40px;
+                border: 0;
+                background-color: var(--color1);
+                border-radius: var(--border-radius);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:active{
+                    box-shadow: var(--box-shadow);
+                }
+            }
+
+            & div{
+                width: 40px;
+                height: 40px;
+                border-radius: var(--border-radius);
+                border: var(--border);
+                background-color: var(--color3);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+
+        & .setting.playerAdd{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+
+            & .nameAdd{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+
+                & input{
+                    width: 100%;
+
+                    &::placeholder{
+                        font-weight: 400;
+                    }
+                }
+
+                & button{
+                    min-width: 45px;
+                    width: 45px;
+                    height: 45px;
+                    background-color: var(--color1);
+                    background-image: var(--check);
+                    background-repeat: no-repeat;
+                    border: 0;
+                    border-radius: var(--border-radius);
+                    background-position: center;
+                }
+            }
+
+            & .players{
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+
+                & .player{
+                    width: fit-content;
+                    padding: 10px;
+                    border: var(--border);
+                    border-radius: var(--border-radius);
+                    background-color: var(--color3);
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    & span{
+                        font-size: 18px;
+                    }
+
+                    & button{
+                        width: 25px;
+                        height: 25px;
+                        background-color: transparent;
+                        border: 0;
+                        background-image: var(--del-d);
+                    }
+                }
+            }
+        }
+
+        & .setting.teams{
+            gap: 20px;
+            width: 100%;
+
+            & .team{
+                width: 100%;
+                background-color: var(--color3);
+                border-radius: var(--border-radius);
+                border: var(--border);
+                padding: 15px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+
+                & .teamDel{
+                    width: 30px;
+                    height: 30px;
+                    border: 0;
+                    background-color: transparent;
+                    background-image: var(--del-d);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                }
+
+                & label{
+                    width: calc(100% - 30px);
+                    border-bottom: var(--border);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    & input{
+                        border: 0;
+                        padding: 0;
+                        height: 35px;
+                        width: 100%;
+                        outline: 0;
+                    }
+
+                    & span{
+                        width: 30px;
+                        height: 30px;
+                        background-image: var(--edit);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+                }
+
+                & .teamPlayers{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    margin: 5px 0;
+
+                    & .teamPlayer{
+                        padding: 10px;
+                        background-color: var(--color2);
+                        border: var(--border);
+                        border-radius: var(--border-radius);
+                        font-size: 18px;
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+
+                        & .teamPlayerDel{
+                            width: 25px;
+                            height: 25px;
+                            background-color: transparent;
+                            border: 0;
+                            background-image: var(--del-d);
+                        }
+                    }
+                }
+            }
+        }
+
+        & .settingStartGame{
+            width: 100%;
+            height: 70px;
+            border: 0;
+            border-radius: var(--border-radius);
+            color: white;
+            font-size: 24px;
+            background-color: var(--accent);
+
+            &:active{
+                box-shadow: var(--box-shadow);
+            }
+        }
+    }
+}
+
+.hall{
+    width: 100vw;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+
+    & h1{
+        font-size: 32px;
+    }
+
+    & div{
+        width: 100%;
+        background-color: var(--color3);
+        border-radius: var(--border-radius);
+        border: var(--border);
+        margin-top: 15vh;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+        min-height: 270px;
+        height: 45vh;
+
+        & h2{
+            font-size: 40px;
+        }
+
+        & button{
+            background-color: var(--accent);
+            border-radius: var(--border-radius);
+            border: 0;
+            width: 100%;
+            color: white;
+            height: 70px;
+            font-size: 28px;
+
+             &:active{
+                box-shadow: var(--box-shadow);
+            }
+        }
+    }
+}
+
+.play{
+    width: 100vw;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+
+    & h1{
+        font-size: 32px;
+    }
+
+    & > div{
+        width: 100%;
+        background-color: var(--color3);
+        border-radius: var(--border-radius);
+        border: var(--border);
+        margin-top: 15vh;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+        min-height: 270px;
+        height: 55vh;
+
+        & > div{
+            font-size: 32px;
+            margin-bottom: auto;
+        }
+
+        & h2{
+            font-size: 40px;
+            padding-bottom: 20px;
+            border-bottom: var(--border);
+            width: 100%;
+            text-align: center;
+        }
+
+        & button{
+            border-radius: var(--border-radius);
+            border: 0;
+            width: 100%;
+            color: white;
+            height: 70px;
+            font-size: 28px;
+
+            &.yes{
+                background-color: var(--green);
+            }
+
+            &.no{
+                background-color: var(--red);
+            }
+
+             &:active{
+                box-shadow: var(--box-shadow);
+            }
+        }
+    }
+}
+
+.results{
+    width: 100vw;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+
+    & h1{
+        font-size: 32px;
+    }
+
+    & > div{
+        width: 100%;
+        background-color: var(--color3);
+        border-radius: var(--border-radius);
+        border: var(--border);
+        margin-top: 15vh;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+        min-height: 270px;
+        // height: 55vh;
+
+        & h2{
+            font-size: 24px;
+            border-bottom: var(--border);
+            width: 100%;
+            text-align: left;
+            padding-bottom: 5px;
+        }
+
+        & .words{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+
+            & .word{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: var(--border);
+                padding-bottom: 5px;
+
+                &>span{
+                    font-size: 20px;
+                }
+
+                & label{
+                    width: 104px;
+                    height: 36px;
+                    border: var(--border);
+                    border-radius: 5px;
+                    background-color: var(--color2);
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 2px;
+
+                    & input{
+                        display: none;
+                    }
+
+                    & .yes{
+                        width: 100%;
+                        height: 30px;
+                        border-radius: 5px;
+                        background-color: var(--color4);
+                        background-image: var(--check);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: 45%;
+                    }
+
+                    & .no{
+                        width: 100%;
+                        height: 30px;
+                        border-radius: 5px;
+                        background-color: var(--red);
+                        background-image: var(--del-l);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    & input:checked + .yes{
+                        background-color: var(--green);
+                    }
+                    
+                    & input:checked + .yes + .no{
+                        background-color: var(--color4);
+                    }
+                }
+            }
+        }
+
+        & button{
+            border-radius: var(--border-radius);
+            border: 0;
+            width: 100%;
+            color: white;
+            // min-height: 60px;
+            height: 60px;
+            font-size: 24px;
+            background-color: var(--accent);
+
+             &:active{
+                box-shadow: var(--box-shadow);
+            }
+        }
+    }
+}
+
+.end{
+    width: 100vw;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+
+    & h1{
+        font-size: 32px;
+    }
+
+    & > div{
+        width: 100%;
+        background-color: var(--color3);
+        border-radius: var(--border-radius);
+        border: var(--border);
+        margin-top: 15vh;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+        min-height: fit-content;
+        height: 55vh;
+
+        & h2{
+            font-size: 24px;
+            border-bottom: var(--border);
+            width: 100%;
+            text-align: left;
+            padding-bottom: 5px;
+        }
+
+        & .teams{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+
+            & .team{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                border-bottom: var(--border);
+                padding-bottom: 5px;
+
+                & > span{
+                    font-size: 24px;
+                }
+
+                & .teamName{
+                    margin-left: 5px;
+                }
+
+                & .teamCount{
+                    margin-left: auto;
+                }
+            }
+        }
+
+        & button{
+            border-radius: var(--border-radius);
+            border: 0;
+            width: 100%;
+            color: white;
+            height: 60px;
+            font-size: 24px;
+            background-color: var(--accent);
+            margin-top: auto;
+
+             &:active{
+                box-shadow: var(--box-shadow);
+            }
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .settings, .hall, .play, .results, .end{
+        max-width: calc(100% - 40px);
+        margin: 20px auto;
+    }
+}
+
+.settings .filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+// Скроллбар для списка слов
+.players::-webkit-scrollbar {
+  width: 6px;
+}
+
+.players::-webkit-scrollbar-track {
+  background: var(--color2);
+  border-radius: var(--border-radius);
+}
+
+.players::-webkit-scrollbar-thumb {
+  background: var(--color1);
+  border-radius: var(--border-radius);
+}
+
+// Кнопка назад на странице слов
+.backBtn {
+  width: 100%;
+  height: 50px;
+  border: 0;
+  border-radius: var(--border-radius);
+  color: white;
+  font-size: 20px;
+  background-color: var(--color1);
+  cursor: pointer;
+
+  &:active {
+    box-shadow: var(--box-shadow);
+  }
+}
