@@ -10,13 +10,13 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/B-Alis/icons/icon-192.png",
+      "src": "https://leraluk.github.io/B-Alis/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/B-Alis/icons/icon-512.png",
+      "src": "https://leraluk.github.io/B-Alis/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -24,7 +24,7 @@
   ],
   "screenshots": [
     {
-      "src": "/B-Alis/icons/icon-512.png",
+      "src": "https://leraluk.github.io/B-Alis/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "narrow"
