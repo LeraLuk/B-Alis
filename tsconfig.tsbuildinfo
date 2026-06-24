@@ -1,1 +1,1 @@
-{"root":["./src/vite-env.d.ts"],"version":"6.0.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/context/gamecontext.tsx","./src/data/defaultwords.ts","./src/pages/end.tsx","./src/pages/hall.tsx","./src/pages/play.tsx","./src/pages/results.tsx","./src/pages/settings.tsx","./src/pages/start.tsx","./src/pages/words.tsx","./src/types/index.ts","./src/utils/storage.ts"],"version":"5.9.3"}
