@@ -5,7 +5,7 @@ import App from './App.tsx';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('/B-Alis/service-worker.js')
       .then((reg) => console.log('SW registered:', reg.scope))
       .catch((err) => console.log('SW failed:', err));
   });
